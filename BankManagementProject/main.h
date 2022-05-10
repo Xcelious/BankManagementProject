@@ -1,7 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int tExit();
-bool programExit = false;
+void openAcct();
+
+
+// void tExit();
+
 
 #endif

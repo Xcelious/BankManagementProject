@@ -1,34 +1,21 @@
-#include <iostream>
-#include <cstring>
-
 #include "main.h"
-
-
-//class userAccount {
-//public:
-	//string fName;
-	//string lName;
-	//int accountNum;
-	//int balance;
-
-//};
+#include <iostream>
 
 bool programExit = false;
+int userChoice = 1;
 
 int main() {
 
 		// Keeps the program running whilst the user manipulates
+
 		// the data.
-	while (programExit == false) {
+	openAcct();
 
-		else if (userChoice == 3) {
-			
-}
-
-		else if (userChoice == 4) {
-			tExit();
-		}
-		
+#if 0
+	if (programExit == true) {
+		// tExit();
 	}
+#endif
+
 	return 0;
 }
