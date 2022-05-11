@@ -1,6 +1,9 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
+#include <string>
+#include <algorithm>
+
 
 std::string fName;
 std::string lName;
@@ -10,6 +13,13 @@ int userPIN;
 char acctChoice;
 char acctType;
 bool isTrue;
+
+bool isValidPIN(std::string isValid) {
+	for (char const& c : isValid) {
+		if (std::isdigit(c) == 0) return false;
+	}
+	return true;
+}
 
 void openAcct() {
 
@@ -102,7 +112,7 @@ void userDeposit() {
 			std::cout << "How much money would you like to deposit?: $";
 			
 			std::cin >> depositAmount;
-			std::cout << "You have made a deposit of $" << depositAmount << " and your total balance is: $" << depositAmount + bankAmount;
+			std::cout << "You have made a deposit of $" << depositAmount << " and your total balance is: $" << depositAmount + bankAmount << "\n";
 
 			isTrue = true;
 		}
@@ -126,7 +136,7 @@ void userWithdraw() {
 			std::cout << "How much money would you like to withdraw?: $";
 
 			std::cin >> withdrawAmount;
-			std::cout << "You have made a withdraw of $" << withdrawAmount << " and your total balance is: $" << bankAmount - withdrawAmount;
+			std::cout << "You have made a withdraw of $" << withdrawAmount << " and your total balance is: $" << bankAmount - withdrawAmount << "\n";
 
 			isTrue = true;
 		}
@@ -138,20 +148,19 @@ void userWithdraw() {
 	}
 }
 
-#if 0
 void tExit() {
+	bool programExit = false;
 	char shutdown;
 	std::cout << "Would you like to exit? Y - Yes | N - No." << "\n";
 	std::cin >> shutdown;
-	putchar(toupper(shutdown));
+	char Nshutdown = toupper(shutdown);
 
-	if (shutdown == 'Y') {
+	if (Nshutdown == 'Y') {
 		std::cout << "Program Exited" << "\n";
 		programExit = true;
 	}
-	else if (shutdown == 'N') {
+	else if (Nshutdown == 'N') {
 		std::cout << "Not Okay" << "\n";
 	}
 	
 }
-#endif
