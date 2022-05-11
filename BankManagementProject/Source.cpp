@@ -6,9 +6,10 @@ std::string fName;
 std::string lName;
 char amountChoice;
 int bankAmount;
+int userPIN;
 char acctChoice;
 char acctType;
-bool isTrue = false;
+bool isTrue;
 
 void openAcct() {
 
@@ -17,6 +18,9 @@ void openAcct() {
 
 	std::cout << "What is your last name?: ";
 	std::cin >> lName;
+
+	std::cout << "Enter a four-digit PIN for your bank account.: ";
+	std::cin >> userPIN;
 
 	while (isTrue == false) {
 		std::cout << "Would you like to initialize your bank account with a deposit? (Y - Yes | N - No): \n";
@@ -82,8 +86,57 @@ void openAcct() {
 }
 
 // 05/11/2022 - Add the "Deposit" function.
+void userDeposit() {
+	isTrue = false;
+	int depositAmount;
+	int checkPIN;
 
+	while (isTrue == false) {
+		// 05/11/2022 - Add an algorithm that checks if the input contains only integers.
+		std::cout << "Enter your PIN: ";
+		std::cin >> checkPIN;
 
+		if (checkPIN == userPIN) {
+			// Acknowledgement of Correct Input
+			std::cout << "Successful Login!\n";
+			std::cout << "How much money would you like to deposit?: $";
+			
+			std::cin >> depositAmount;
+			std::cout << "You have made a deposit of $" << depositAmount << " and your total balance is: $" << depositAmount + bankAmount;
+
+			isTrue = true;
+		}
+		else {
+			std::cout << "Invalid PIN. Please try again.\n";
+		}
+	}
+}
+
+void userWithdraw() {
+	isTrue = false;
+	int checkPIN;
+	int withdrawAmount;
+
+	while (isTrue == false) {
+		std::cout << "Enter your PIN: ";
+		std::cin >> checkPIN;
+
+		if (checkPIN == userPIN) {
+			std::cout << "Successful Login!\n";
+			std::cout << "How much money would you like to withdraw?: $";
+
+			std::cin >> withdrawAmount;
+			std::cout << "You have made a withdraw of $" << withdrawAmount << " and your total balance is: $" << bankAmount - withdrawAmount;
+
+			isTrue = true;
+		}
+		else if (checkPIN != userPIN)
+		{
+			std::cout << "Invalid Pin. Please try again.\n";
+			continue;
+		}
+	}
+}
 
 #if 0
 void tExit() {

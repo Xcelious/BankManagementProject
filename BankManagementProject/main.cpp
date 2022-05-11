@@ -11,6 +11,9 @@ int main() {
 		// the data.
 	openAcct();
 
+	// userDeposit();
+
+	userWithdraw();
 #if 0
 	if (programExit == true) {
 		// tExit();

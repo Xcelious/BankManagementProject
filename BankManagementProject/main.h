@@ -3,8 +3,11 @@
 
 void openAcct();
 
+void userDeposit();
 
-// void tExit();
+void userWithdraw();
+
+void tExit();
 
 
 #endif
